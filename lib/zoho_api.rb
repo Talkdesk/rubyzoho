@@ -312,9 +312,9 @@ module ZohoApi
           'Sales Orders' => %w(salesorderid potentialid accountid contactid quoteid),
           'Invoices' => %w(invoiceid accountid salesorderid contactid),
           'Vendors' => %w(vendorid vendorname),
-          'Tasks' => %w(taskid),
-          'Events' => %w(eventid),
-          'Notes' => %w(notesid)
+          'Tasks' => %w(taskid contactid),
+          'Events' => %w(eventid contactid),
+          'Notes' => %w(notesid contactid)
       }
       valid_relationships[module_name].index(field.downcase)
     end

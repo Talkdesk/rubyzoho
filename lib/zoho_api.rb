@@ -208,9 +208,9 @@ module ZohoApi
       r = self.class.get(create_url("#{related_module}", 'getRelatedRecords'),
          :query => { :newFormat => 1, :authtoken => @auth_token, :scope => 'crmapi',
                      :parentModule => parent_module, :id => parent_record_id})
-
-      x = REXML::Document.new(r.body).elements.to_a("/response/result/#{parent_module}/row")
       check_for_errors(r)
+      x = REXML::Document.new(r.body).elements.to_a("/response/result/#{parent_module}/row")
+      to_hash(x, related_module)
     end
 
     def some(module_name, index = 1, number_of_records = nil)

@@ -75,7 +75,7 @@ module ZohoApiFieldUtils
   end
 
   def reflect_module_fields
-    @modules.each { |m| fields(m) }
+    @modules.each { |m| fields(m) rescue nil }
     @@module_fields
   end
 
